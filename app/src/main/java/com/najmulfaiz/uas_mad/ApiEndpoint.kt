@@ -63,4 +63,10 @@ interface ApiEndpoint {
 
     @GET("booking/{booking_id}")
     fun get_booking_detail(@Header("Authorization") token: String, @Path("booking_id") booking_id: String) : Call<BookingResponse>
+
+    @GET("part")
+    fun get_parts(@Header("Authorization") token: String) : Call<PartResponse>
+
+    @GET("tip")
+    fun get_tips(@Header("Authorization") token: String) : Call<TipResponse>
 }

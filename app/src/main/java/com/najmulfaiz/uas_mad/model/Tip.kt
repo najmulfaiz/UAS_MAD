@@ -9,16 +9,19 @@ data class TipResponse(
     var metadata : Metadata? = Metadata(),
 
     @field:SerializedName("response")
-    val response: List<PartItem>? = null
+    val response: List<TipItem>? = null
 )
 
 class TipItem :Serializable {
     @field:SerializedName("id")
     val id: String? = null
 
-    @field:SerializedName("bahan_bakar")
-    val bahan_bakar: String? = null
+    @field:SerializedName("title")
+    val title: String? = null
 
-    @field:SerializedName("keluhan")
-    val keluhan: String? = null
+    @field:SerializedName("content")
+    val content: String? = null
+
+    @field:SerializedName("image")
+    val image: String? = null
 }

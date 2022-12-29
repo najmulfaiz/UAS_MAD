@@ -55,5 +55,15 @@ class MainActivity : AppCompatActivity() {
             val emergencyIntent = Intent(this@MainActivity, EmergencyActivity::class.java)
             startActivity(emergencyIntent)
         }
+
+        btnPart.setOnClickListener {
+            val partIntent = Intent(this@MainActivity, PartActivity::class.java)
+            startActivity(partIntent)
+        }
+
+        btnTipsTrick.setOnClickListener {
+            val tipIntent = Intent(this@MainActivity, TipActivity::class.java)
+            startActivity(tipIntent)
+        }
     }
 }

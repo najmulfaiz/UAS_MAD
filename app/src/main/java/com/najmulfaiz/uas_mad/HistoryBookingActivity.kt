@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.najmulfaiz.uas_mad.model.BookingItem
 import com.najmulfaiz.uas_mad.model.BookingResponse
 import com.najmulfaiz.uas_mad.model.Metadata
-import com.najmulfaiz.uas_mad.model.UserAuth
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
