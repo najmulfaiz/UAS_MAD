@@ -13,6 +13,14 @@
         android:orientation="vertical"
         android:gravity="center_vertical">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_logo_foreground"
+            android:layout_gravity="center"
+            android:layout_marginBottom="64dp"
+            android:background="@drawable/shape_rounded" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -1,5 +1,6 @@
 package com.najmulfaiz.uas_mad
 
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -39,7 +40,13 @@ class TipActivity : AppCompatActivity() {
                     val body = response.body()
                     var metadata: Metadata? = body?.metadata
                     var response: List<TipItem>? = body?.response
-                    tipAdapter = TipAdapter(response);
+                    tipAdapter = TipAdapter(response, object: TipAdapter.OnAdapterListener {
+                        override fun showDetail(data: TipItem?) {
+                            val detailTipIntent = Intent(this@TipActivity, DetailTipActivity::class.java)
+                                .putExtra("data", data)
+                            startActivity(detailTipIntent)
+                        }
+                    })
 
                     listTip = findViewById(R.id.listTip)
                     listTip.apply {
