@@ -12,11 +12,14 @@
         android:layout_height="wrap_content"
         android:padding="24dp">
         <TextView
-            android:id="@+id/tvText"
+            android:id="@+id/tvUserNama"
             android:layout_weight="1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Hello, John Doe"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,6 +33,11 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="410dp"
+        android:src="@mipmap/ic_logo_foreground" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,12 +45,24 @@
         android:orientation="vertical"
         android:layout_alignParentBottom="true">
 
+        <TextView
+            android:id="@+id/tvMenu"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Menu"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="16dp"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_horizontal"
-            android:paddingVertical="24dp">
+            android:paddingBottom="24dp">
 
             <ImageButton
                 android:id="@+id/btnServiceBooking"
@@ -50,13 +70,15 @@
                 android:layout_height="150dp"
                 android:layout_centerInParent="true"
                 android:layout_marginRight="40dp"
-                android:background="@drawable/shape_color_menu" />
+                android:src="@mipmap/ic_booking_service_foreground"
+                android:background="@drawable/shape_color_menu"/>
 
             <ImageButton
                 android:id="@+id/btnPart"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_centerInParent="true"
+                android:src="@mipmap/ic_part_foreground"
                 android:background="@drawable/shape_color_menu" />
 
         </LinearLayout>
@@ -69,18 +91,20 @@
             android:paddingBottom="24dp">
 
             <ImageButton
-                android:id="@+id/btnEmergencyHotline"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_centerInParent="true"
-                android:layout_marginRight="40dp"
-                android:background="@drawable/shape_color_menu" />
-
-            <ImageButton
                 android:id="@+id/btnTipsTrick"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_centerInParent="true"
+                android:src="@mipmap/ic_tip_foreground"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/shape_color_menu" />
+
+            <ImageButton
+                android:id="@+id/btnEmergencyHotline"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/ic_emergency_foreground"
                 android:background="@drawable/shape_color_menu" />
 
         </LinearLayout>

@@ -12,7 +12,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var tvText: TextView
+    private lateinit var tvUserNama: TextView
     private lateinit var btnLogout: Button
     private lateinit var btnServiceBooking: ImageButton
     private lateinit var btnPart: ImageButton
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        tvText = findViewById(R.id.tvText)
+        tvUserNama = findViewById(R.id.tvUserNama)
         btnLogout = findViewById(R.id.btnLogout)
         btnServiceBooking = findViewById(R.id.btnServiceBooking)
         btnPart = findViewById(R.id.btnPart)
@@ -32,13 +32,14 @@ class MainActivity : AppCompatActivity() {
 
         val preferences: SharedPreferences = getSharedPreferences("UAS_MAD", MODE_PRIVATE)
         var token = preferences.getString("TOKEN", "")
+        var user_nama = preferences.getString("USER_NAMA", "")
 
         if(token == "") {
             val loginIntent = Intent(this@MainActivity, LoginActivity::class.java)
             startActivity(loginIntent)
         }
 
-        tvText.text = token
+        tvUserNama.text = user_nama
         btnLogout.setOnClickListener {
             preferences.edit().remove("TOKEN").commit();
             finish();
@@ -46,8 +47,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnServiceBooking.setOnClickListener {
-            val loginIntent = Intent(this@MainActivity, BookingActivity::class.java)
-            startActivity(loginIntent)
+            val bookingIntent = Intent(this@MainActivity, HistoryBookingActivity::class.java)
+            startActivity(bookingIntent)
+        }
+
+        btnEmergencyHotline.setOnClickListener {
+            val emergencyIntent = Intent(this@MainActivity, EmergencyActivity::class.java)
+            startActivity(emergencyIntent)
         }
     }
 }

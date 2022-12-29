@@ -54,6 +54,7 @@ class LoginActivity : AppCompatActivity() {
                         if(metadata?.code == 200) {
                             val preferences: SharedPreferences = getSharedPreferences("UAS_MAD", MODE_PRIVATE)
                             preferences.edit().putString("TOKEN", response?.token).apply()
+                            preferences.edit().putString("USER_NAMA", response?.data?.name).apply()
 
                             val mainIntent = Intent(this@LoginActivity, MainActivity::class.java)
                             startActivity(mainIntent)

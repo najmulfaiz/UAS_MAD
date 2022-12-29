@@ -65,23 +65,21 @@ class BookingActivity : AppCompatActivity() {
             bahan_bakar = etBahanBakar.text.toString()
             keluhan = etKeluhan.text.toString()
 
-            api.storeBooking(name, email, no_hp, alamat, password, province_id, regency_id).enqueue(object : Callback<UserAuthResponse> {
-                override fun onFailure(call: Call<UserAuthResponse>, t: Throwable) {
+            api.post_booking("Bearer ${token}", tanggal, nopol, jenis_kendaraan_id, jenis_transmisi_id, tahun, bahan_bakar, keluhan).enqueue(object : Callback<BookingResponse> {
+                override fun onFailure(call: Call<BookingResponse>, t: Throwable) {
                     Log.d("MainActivity", t.toString())
                 }
 
-                override fun onResponse(call: Call<UserAuthResponse>, response: Response<UserAuthResponse>) {
+                override fun onResponse(call: Call<BookingResponse>, response: Response<BookingResponse>) {
                     if (response.isSuccessful){
                         val body = response.body()
                         var metadata: Metadata? = body?.metadata
-                        var response: UserAuth? = body?.response
 
-                        Toast.makeText(this@RegisterActivity, metadata?.message, Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@BookingActivity, metadata?.message, Toast.LENGTH_LONG).show()
                         if(metadata?.code == 200) {
-                            val preferences: SharedPreferences = getSharedPreferences("UAS_MAD", MODE_PRIVATE)
-                            preferences.edit().putString("TOKEN", response?.token).apply()
+                            //
 
-                            val mainIntent = Intent(this@RegisterActivity, MainActivity::class.java)
+                            val mainIntent = Intent(this@BookingActivity, MainActivity::class.java)
                             startActivity(mainIntent)
                         }
                     }
