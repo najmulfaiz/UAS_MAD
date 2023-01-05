@@ -7,8 +7,8 @@ QuickFix adalah tugas akhir mata kuliah MAD. Aplikasi ini memiliki fitur sebagai
 4. Emergency Hotline
 
 Anggota Kelompok :
-201953107 - Ragil Candra W
-201953040 - Moh Wildan Habibi
-201953118 - Suryadi Alfian D
-201953032 - Muhammad Najmul Faiz
-201953104 - Marlina Oktaviani
+- 201953107 - Ragil Candra W
+- 201953040 - Moh Wildan Habibi
+- 201953118 - Suryadi Alfian D
+- 201953032 - Muhammad Najmul Faiz
+- 201953104 - Marlina Oktaviani
