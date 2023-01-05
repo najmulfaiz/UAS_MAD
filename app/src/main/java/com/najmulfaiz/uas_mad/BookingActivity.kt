@@ -65,21 +65,19 @@ class BookingActivity : AppCompatActivity() {
             bahan_bakar = etBahanBakar.text.toString()
             keluhan = etKeluhan.text.toString()
 
-            api.post_booking("Bearer ${token}", tanggal, nopol, jenis_kendaraan_id, jenis_transmisi_id, tahun, bahan_bakar, keluhan).enqueue(object : Callback<BookingResponse> {
-                override fun onFailure(call: Call<BookingResponse>, t: Throwable) {
+            api.post_booking("Bearer ${token}", tanggal, nopol, jenis_kendaraan_id, jenis_transmisi_id, tahun, bahan_bakar, keluhan).enqueue(object : Callback<BookingSingleResponse> {
+                override fun onFailure(call: Call<BookingSingleResponse>, t: Throwable) {
                     Log.d("MainActivity", t.toString())
                 }
 
-                override fun onResponse(call: Call<BookingResponse>, response: Response<BookingResponse>) {
+                override fun onResponse(call: Call<BookingSingleResponse>, response: Response<BookingSingleResponse>) {
                     if (response.isSuccessful){
                         val body = response.body()
                         var metadata: Metadata? = body?.metadata
 
                         Toast.makeText(this@BookingActivity, metadata?.message, Toast.LENGTH_LONG).show()
                         if(metadata?.code == 200) {
-                            //
-
-                            val mainIntent = Intent(this@BookingActivity, MainActivity::class.java)
+                            val mainIntent = Intent(this@BookingActivity, BookingSuccessActivity::class.java)
                             startActivity(mainIntent)
                         }
                     }

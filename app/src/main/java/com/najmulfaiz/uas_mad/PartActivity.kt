@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.provider.Telephony.Mms.Part
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.najmulfaiz.uas_mad.model.*
@@ -17,6 +18,7 @@ class PartActivity : AppCompatActivity() {
     private val api by lazy { ApiRetrofit().endpoint }
     private lateinit var listPart: RecyclerView
     private lateinit var partAdapter: PartAdapter
+    private lateinit var btnBack: ImageButton
     private var token: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +27,11 @@ class PartActivity : AppCompatActivity() {
 
         val preferences: SharedPreferences = getSharedPreferences("UAS_MAD", MODE_PRIVATE)
         token = preferences.getString("TOKEN", "").toString()
+
+        btnBack = findViewById(R.id.btnBack)
+        btnBack.setOnClickListener {
+            finish()
+        }
 
         getParts();
     }

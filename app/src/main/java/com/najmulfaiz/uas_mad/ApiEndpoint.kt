@@ -59,7 +59,7 @@ interface ApiEndpoint {
         @Field("tahun") tahun: String,
         @Field("bahan_bakar") bahan_bakar: String,
         @Field("keluhan") keluhan: String
-    ) : Call<BookingResponse>
+    ) : Call<BookingSingleResponse>
 
     @GET("booking/{booking_id}")
     fun get_booking_detail(@Header("Authorization") token: String, @Path("booking_id") booking_id: String) : Call<BookingResponse>

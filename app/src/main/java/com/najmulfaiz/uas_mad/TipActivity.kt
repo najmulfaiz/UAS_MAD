@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.najmulfaiz.uas_mad.model.*
@@ -16,6 +17,7 @@ class TipActivity : AppCompatActivity() {
     private val api by lazy { ApiRetrofit().endpoint }
     private lateinit var listTip: RecyclerView
     private lateinit var tipAdapter: TipAdapter
+    private lateinit var btnBack: ImageButton
     private var token: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +26,11 @@ class TipActivity : AppCompatActivity() {
 
         val preferences: SharedPreferences = getSharedPreferences("UAS_MAD", MODE_PRIVATE)
         token = preferences.getString("TOKEN", "").toString()
+
+        btnBack = findViewById(R.id.btnBack)
+        btnBack.setOnClickListener {
+            finish()
+        }
 
         getTips();
     }

@@ -12,6 +12,14 @@ data class BookingResponse(
     val response: List<BookingItem>? = null
 )
 
+data class BookingSingleResponse(
+    @field:SerializedName("metadata")
+    var metadata : Metadata? = Metadata(),
+
+    @field:SerializedName("response")
+    val response: BookingItem? = BookingItem()
+)
+
 class BookingItem :Serializable {
     @field:SerializedName("id")
     val id: String? = null
